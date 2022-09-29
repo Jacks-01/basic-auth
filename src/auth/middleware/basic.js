@@ -2,7 +2,7 @@
 
 const bcrypt = require('bcrypt');
 const base64 = require('base-64');
-const { UserModel } = require('../models/user.schema');
+const { Users } = require('../models/user.schema');
 
 // Basic Auth Middleware
 
@@ -25,7 +25,7 @@ async function basicAuth(req, res, next) {
     console.log('password:', password);
 
     // find the user in the database
-    let user = await UserModel.findOne({ where: { username } });
+    let user = await Users.findOne({ where: { username } });
     console.log('user:', user);
     // IF the user exists (in database after a signup request)...
     if (user) {
@@ -48,4 +48,4 @@ async function basicAuth(req, res, next) {
   }
 }
 
-module.exports = {basicAuth};
+module.exports = basicAuth;
