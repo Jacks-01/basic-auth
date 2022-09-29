@@ -8,7 +8,7 @@ const DATABASE_URL =
 
 const sequelize = new Sequelize(DATABASE_URL);
 
-const User = sequelize.define('User', {
+const Users = sequelize.define('Users', {
   username: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -19,4 +19,4 @@ const User = sequelize.define('User', {
   },
 });
 
-module.exports = { sequelize, DataTypes, User};
+module.exports = { sequelize, DataTypes, Users};
